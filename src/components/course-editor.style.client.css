@@ -1,0 +1,111 @@
+.wbdv-left-content-pane-background {
+  background-color: #43444a;
+  color: white;
+  padding-top: 100px;
+  padding-bottom: 350px;
+  left: 0;
+  float: left;
+}
+
+.wbdv-lesson-topic-tabs {
+  right: 0;
+  background-color: whitesmoke;
+}
+
+.wbdv-left-content-pane-boxes {
+  background-color: #5d5f66;
+  color: white;
+  top: 50px;
+  bottom: 50px;
+  float: left;
+}
+
+.wbdv-left-content-pane-boxes-highlighted {
+  background-color: dodgerblue;
+  color: white;
+  top: 50px;
+  bottom: 50px;
+  float: left;
+}
+
+.wbdv-page-background {
+  background-color: whitesmoke;
+  padding-left: 0;
+  margin-left: 0;
+  left: 0;
+}
+
+.wbdv-table-background {
+  background-color: white;
+}
+
+.wbdv-header-menu-icon-text{
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 0px;
+}
+
+.wbdv-add-course-header-styling {
+  padding: 10px;
+  padding-top: 15px;
+  margin-left: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.wbdv-sticky-header-editor {
+  position: fixed;
+  background: #43444a;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index:1000
+}
+
+.wbdv-no-padding-top {
+  padding-top: 0;
+}
+
+.wbdv-exit-button {
+  padding-left: 30px;
+  padding-top: 15px;
+}
+
+.wbdv-nav-heading-style{
+  padding-left: 30px;
+  margin-top: 5px;
+}
+
+
+/*
+Referenced the style below from this link:
+https://stackoverflow.com/questions/10560786/changing-color-of-twitter-bootstrap-nav-pills
+*/
+.nav-pills > li > a.active {
+  background-color: #303236 !important;
+  color: #f0f5fd !important;
+}
+
+.nav-pills > li > a:hover {
+  color: #ffffff !important;
+
+}
+
+.nav-link-color {
+  color: #ffffff;
+}
+/*
+End Reference
+*/
+
+.wbdv-icon-align-right {
+  position: fixed;
+  right: 20px;
+}
+
+.wbdv-add-top-spacing {
+  margin-top: 40px;
+}
+
+

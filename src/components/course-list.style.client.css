@@ -1,0 +1,45 @@
+
+
+.wbdv-table-background {
+  background-color: white;
+}
+
+.wbdv-header-menu-icon-text{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 0px;
+}
+
+.wbdv-header-search-bar{
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  background-color: #b8cef6;
+}
+
+.wbdv-add-course-header-styling {
+  padding: 10px;
+  padding-top: 20px;
+  margin-left: 5px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+body {
+  padding-top: 100px;
+}
+
+.wbdv-sticky-header {
+  position: fixed;
+  background: cornflowerblue;
+  color: white;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.wbdv-header-menu-icon{
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 25px;
+}

@@ -1,0 +1,65 @@
+h1{
+  color: black;
+  background-color: white;
+}
+
+
+input {
+  margin-bottom: 15px;
+}
+
+.wbdv-nudge-15px-down {
+  position: relative;
+  top: 15px;
+}
+
+.wbdv-bottom-right-fixed {
+  position: fixed;
+  color: red;
+  right: 15px;
+  bottom: 15px;
+}
+
+
+
+.wbdv-padding-left-header {
+  padding-left: 36px;
+  padding-top: 15px;
+  color: lightgray;
+}
+
+.wbdv-file-icon-style {
+  color: dodgerblue;
+}
+
+.wbdv-circle-add-style {
+  color: darkred;
+}
+
+.wbdv-document-table-text-style {
+  color: black;
+  padding-left: 12px;
+}
+
+.wbdv-nav-buttons-nudge {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+.wbdv-light-gray-background {
+  background-color: whitesmoke;
+  margin: 0;
+  padding: 10px;
+}
+
+.wbdv-small-nudge-right {
+  margin-right: 5px;
+}
+
+.wbdv-white-text {
+  color: #FFF;
+}
+
+.wbdv-float-left {
+  float: left;
+}
