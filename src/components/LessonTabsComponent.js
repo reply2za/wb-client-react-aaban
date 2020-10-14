@@ -31,13 +31,7 @@ class LessonTabsComponent extends React.Component {
       return (
     <div>
       <ul className="nav nav-tabs">
-      {
-        this.state.tab.map(tab =>
-            <LessonTabIComponent className="fas fa-file-alt"
-                                key={tab._id}
-                                 selectedTabId ={this.state.selectedTabId}
-                                title={tab.title}/>)
-      }
+
         <li className="nav-item">
           <a href="#" className="nav-link wbdv-lesson-tabs">Lesson 1</a>
         </li>
