@@ -34,8 +34,6 @@ const store = createStore(rootReducer)
 ReactDOM.render(
     <Provider store={store}>
       <CourseManager/>
-      <CounterContainer/>
-      <HelloContainer/>
     </Provider>,
     //<CourseManager/>,
   document.getElementById('root')

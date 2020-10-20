@@ -58,7 +58,7 @@ class CourseRowComponent extends React.Component {
             }
             {
               this.state.editing === false &&
-              <Link to={`/edit/ ${this.state.course._id}`}>
+              <Link to={`/edit/${this.state.course._id}`}>
                 <FontAwesomeIcon icon={faFileAlt} className="wbdv-small-nudge-right"/> {this.state.course.title}
               </Link>
             }
@@ -95,7 +95,7 @@ class CourseRowComponent extends React.Component {
         }
         {
           this.state.editing === false &&
-          <Link to={`/edit/ ${this.state.course._id}`} className="wbdv-white-text">
+          <Link to={`/edit/${this.state.course._id}`} className="wbdv-white-text">
             <FontAwesomeIcon icon={faFileAlt} className="wbdv-small-nudge-right"/> {this.state.course.title}
           </Link>
         }
