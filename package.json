@@ -18,7 +18,8 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
-    "react-simple-flex-grid": "^1.3.21"
+    "react-simple-flex-grid": "^1.3.21",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",

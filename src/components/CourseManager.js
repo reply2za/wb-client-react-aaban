@@ -5,7 +5,7 @@ import {Register} from "./Register";
 import {Profile} from "./Profile";
 import "./styles.css";
 import CourseListComponent from "./CourseListComponent";
-import {CourseEditor} from "./CourseEditor";
+import CourseEditor from "./CourseEditor";
 import CourseGridComponent from "./CourseGridComponent";
 import "./styles.css";
 

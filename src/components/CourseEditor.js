@@ -7,6 +7,10 @@ import "./styles.css";
 import "./course-editor.style.client.css";
 import ModuleListComponent from "./ModuleListComponent";
 import LessonTabs from "./LessonTabsComponent";
+import ModuleList from "./ModuleList";
+import moduleService from "../services/ModuleService";
+import {connect} from "react-redux";
+
 import {
   faFileAlt,
   fas,
@@ -16,7 +20,7 @@ import {
   faTimes, faArrowUp, faArrowDown
 } from "@fortawesome/free-solid-svg-icons";
 
-export class CourseEditor extends React.Component{
+class CourseEditor extends React.Component{
 
   state = {
     course: {
@@ -29,11 +33,9 @@ export class CourseEditor extends React.Component{
   // initialization
   componentDidMount() {
     const courseId = this.props.match.params.courseId
-    console.log(this.props)
-    findCourseById(courseId)
-    .then(actualCourse => this.setState({
-      course: actualCourse
-    }))
+    console.log(courseId)
+    this.props.findCourseById(courseId)
+    this.props.findModulesForCourse(courseId)
   }
 
   render() {
@@ -64,7 +66,7 @@ export class CourseEditor extends React.Component{
 
           <div className="row">
             <div className="col-4 wbdv-left-content-pane-background">
-                <ModuleListComponent/>
+                <ModuleList/>
             </div>
 
 
@@ -146,3 +148,23 @@ export class CourseEditor extends React.Component{
     )
   }
 }
+
+const stateToProperty = (state) => ({}) // not reading anything from the state yet
+
+const propertyToDispatchMapper = (dispatch) => ({
+  findModulesForCourse: courseId => moduleService.findModulesForCourse(courseId)
+  .then(actualModules => dispatch({
+    type: "SET_MODULES",
+    modules: actualModules
+  })),
+  findCourseById: (courseId) => findCourseById(courseId)
+  .then(actualCourse => dispatch({
+    type: "FIND_COURSE_BY_ID",
+    course: actualCourse
+  }))
+
+})
+
+export default connect
+(stateToProperty, propertyToDispatchMapper)
+(CourseEditor)

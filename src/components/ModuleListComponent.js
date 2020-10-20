@@ -84,7 +84,7 @@ class ModuleListComponent extends React.Component {
     return (
         <div className="wbdv-no-padding-top">
         <i onClick={this.createModule}><FontAwesomeIcon icon={faPlus}/></i>
-        <ul className="list-group">
+          <ul className="list-group">
           {
             this.state.modules.map(module =>
                 <ModuleComponent
