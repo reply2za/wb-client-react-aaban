@@ -63,3 +63,26 @@ input {
 .wbdv-float-left {
   float: left;
 }
+
+.active{
+  background-color: blue;
+}
+
+.Link :active{
+  background-color: blue;
+  color: green;
+}
+.Link :hover{
+  color: blueviolet;
+}
+
+.wbdv-highlight-background{
+  background-color: blue;
+}
+.wbdv-highlight-background-dark{
+  background-color: lightcyan;
+}
+
+.wbdv-display-inline {
+  display: inline-block;
+}

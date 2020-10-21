@@ -15,7 +15,13 @@ export const lessonReducer = (state={}, action) => {
         lessons: [
           ...state.lessons,
           action.lesson
-        ]
+        ],
+        highlightedLesson: null
+      }
+      case "HIGHLIGHT_LESSON":
+      return {
+        ...state,
+        highlightedLesson: action.lessonId
       }
     case "DELETE_LESSON":
       return {

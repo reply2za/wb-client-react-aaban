@@ -6,10 +6,14 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "./styles.css";
 import "./course-editor.style.client.css";
 import ModuleListComponent from "./ModuleListComponent";
-import LessonTabs from "./LessonTabsComponent";
 import ModuleList from "./ModuleList";
 import moduleService from "../services/ModuleService";
 import {connect} from "react-redux";
+//import LessonTabs from "./LessonTabsComponent";
+import LessonTabs from "./LessonTabs";
+import TopicTabs from "./TopicTabs";
+import lessonService from "../services/LessonService";
+import topicService from "../services/TopicService";
 
 import {
   faFileAlt,
@@ -19,6 +23,7 @@ import {
   faPlusSquare,
   faTimes, faArrowUp, faArrowDown
 } from "@fortawesome/free-solid-svg-icons";
+import {Link} from "react-router-dom";
 
 class CourseEditor extends React.Component{
 
@@ -33,9 +38,29 @@ class CourseEditor extends React.Component{
   // initialization
   componentDidMount() {
     const courseId = this.props.match.params.courseId
-    console.log(courseId)
+    const moduleId = this.props.match.params.moduleId
+    const lessonId = this.props.match.params.lessonId
     this.props.findCourseById(courseId)
     this.props.findModulesForCourse(courseId)
+    if(moduleId) {
+      this.props.findLessonsForModule(moduleId)
+    }
+    if(lessonId) {
+      this.props.findTopicsForLesson(lessonId)
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    const moduleId = this.props.match.params.moduleId
+    const previousModuleId = prevProps.match.params.moduleId
+    const lessonId = this.props.match.params.lessonId
+    const previousLessonId = prevProps.match.params.lessonId
+    if(moduleId !== previousModuleId) {
+      this.props.findLessonsForModule(moduleId)
+    }
+    if(lessonId !== previousLessonId) {
+      this.props.findTopicsForLesson(lessonId)
+    }
   }
 
   render() {
@@ -45,7 +70,9 @@ class CourseEditor extends React.Component{
 
           <h1 className="wbdv-sticky-header-editor">
             <div className="form-group row">
-              <i className="fas fa-times wbdv-padding-left-header wbdv-course-editor wbdv-close"></i>
+              <Link to="/courses" className="fas fa-times wbdv-padding-left-header wbdv-course-editor wbdv-close">
+                <FontAwesomeIcon icon={faTimes}/>
+              </Link>
               <label
                   className="wbdv-header-menu-icon-text wbdv-course-title">CS4550-WebDev</label>
               <ul className="nav nav-pills wbdv-nav-heading-style">
@@ -149,20 +176,37 @@ class CourseEditor extends React.Component{
   }
 }
 
-const stateToProperty = (state) => ({}) // not reading anything from the state yet
-
+const stateToProperty = (state) => ({
+  course: state.courseReducer.course
+})
 const propertyToDispatchMapper = (dispatch) => ({
-  findModulesForCourse: courseId => moduleService.findModulesForCourse(courseId)
-  .then(actualModules => dispatch({
-    type: "SET_MODULES",
-    modules: actualModules
-  })),
+  findTopicsForLesson: lessonId => {
+    topicService.findTopicsForLesson(lessonId)
+    .then(topics => dispatch({
+      type: "FIND_TOPIC_FOR_LESSON",
+      topics,
+      lessonId
+    }))
+  },
+  findLessonsForModule: moduleId => {
+    lessonService.findLessonsForModule(moduleId)
+    .then(lessons => dispatch({
+      type: "FIND_LESSONS_FOR_MODULE",
+      lessons,
+      moduleId
+    }))
+  },
+  findModulesForCourse: courseId =>
+      moduleService.findModulesForCourse(courseId)
+      .then(actualModules => dispatch({
+        type: "FIND_MODULES_FOR_COURSE",
+        modules: actualModules
+      })),
   findCourseById: (courseId) => findCourseById(courseId)
   .then(actualCourse => dispatch({
     type: "FIND_COURSE_BY_ID",
     course: actualCourse
   }))
-
 })
 
 export default connect

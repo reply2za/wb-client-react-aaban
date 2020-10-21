@@ -22,11 +22,13 @@ import CounterComponent from "./components/CounterComponent";
 import CounterContainer from "./containers/CounterContainer";
 import moduleReducer from "./reducers/modulesReducer";
 import courseReducer from "./reducers/courseReducer";
+import {lessonReducer} from "./reducers/lessonReducer";
 
 const rootReducer = combineReducers({
   fsm,
   moduleReducer,
-  courseReducer
+  courseReducer,
+  lessonReducer
 })
 
 const store = createStore(rootReducer)
