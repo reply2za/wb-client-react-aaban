@@ -1,4 +1,9 @@
-export const topicReducer = (state={}, action) => {
+const initialState = {
+  topics: [],
+  highlight: 0
+}
+
+export const topicReducer = (state=initialState, action) => {
   switch (action.type) {
     case "UPDATE_TOPIC":
       return {

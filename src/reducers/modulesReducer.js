@@ -1,7 +1,7 @@
 import {
   DELETE_MODULE,
   UPDATE_MODULE,
-  CREATE_MODULE, CLICKED_MODULE, HIGHLIGHT_MODULE
+  CREATE_MODULE, HIGHLIGHT_MODULE
 } from "../actions/moduleActions";
 
 const initialState = {
