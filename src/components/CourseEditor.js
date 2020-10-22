@@ -104,28 +104,7 @@ class CourseEditor extends React.Component{
 
               <ul className="nav nav-pills">
                 <li className="nav-item wbdv-topic-pill-list">
-                  <a href="#" className="nav-link wbdv-topic-pill-list">Topic
-                    1</a>
-                </li>
-                <li className="nav-item">
-                  <a href="#" className="nav-link active wbdv-topic-pill-list">Topic
-                    2</a>
-                </li>
-                <li className="nav-item">
-                  <a href="#" className="nav-link wbdv-topic-pill-list">Topic
-                    3</a>
-                </li>
-                <li className="nav-item">
-                  <a href="#" className="nav-link wbdv-topic-pill-list">Topic
-                    4</a>
-                </li>
-                <li className="nav-item">
-                  <a href="#" className="nav-link wbdv-topic-pill-list">Topic
-                    5</a>
-                </li>
-                <li className="nav-item">
-                  <a href="#" className="nav-link wbdv-topic-pill-list">Topic
-                    1</a>
+                  <TopicTabs/>
                 </li>
               </ul>
 

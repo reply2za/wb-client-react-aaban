@@ -86,3 +86,7 @@ input {
 .wbdv-display-inline {
   display: inline-block;
 }
+
+.wbdv-module-plus-button {
+  text-align: center;
+}

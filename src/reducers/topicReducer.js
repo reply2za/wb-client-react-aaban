@@ -16,19 +16,19 @@ export const topicReducer = (state={}, action) => {
           ...state.topics,
           action.topic
         ],
-        highlightedtopic: null
+        highlightedTopic: null
       }
     case "HIGHLIGHT_TOPIC":
       return {
         ...state,
-        highlightedTOPIC: action.topicId
+        highlightedTopic: action.topicId
       }
     case "DELETE_TOPIC":
       return {
         ...state,
         topics: state.topics.filter(topic => topic._id !== action.topicId)
       }
-    case "FIND_TOPICS_FOR_MODULE":
+    case "FIND_TOPICS_FOR_LESSON":
       return {
         ...state,
         topics: action.topics,

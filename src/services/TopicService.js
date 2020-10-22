@@ -1,4 +1,4 @@
-const lessonUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban2/lessons"
+const lessonUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban/lessons"
 const topicUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban/topics"
 
 export const findTopicsForLesson = (lessonId) =>
@@ -12,7 +12,7 @@ export const deleteTopic = (topicId) =>
     .then(response => response.json())
 
 export const createTopicForLesson = (lessonId, newTopic) =>
-    fetch(`${lessonUrl}/${lessonId}/lessons`, {
+    fetch(`${lessonUrl}/${lessonId}/topics`, {
       method: "POST",
       body: JSON.stringify(newTopic),
       headers: {

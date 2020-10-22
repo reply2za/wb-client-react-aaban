@@ -1,4 +1,4 @@
-const moduleUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban2/modules"
+const moduleUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban/modules"
 const lessonUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban/lessons"
 
 export const findLessonsForModule = (moduleId) =>

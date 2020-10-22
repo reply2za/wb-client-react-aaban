@@ -13,6 +13,7 @@ import {
 } from "../actions/moduleActions";
 import {Link} from "react-router-dom";
 import {
+  faAlignCenter, faAlignRight,
   faCheck,
   faPen,
   faPlus,
@@ -28,12 +29,17 @@ const ModuleList = (
       createModule,
       updateModule}) =>
     <div>
-      <h1>Modules for {course.title}</h1>
+      <h2>Modules for {course.title}</h2>
+      <h3 className="wbdv-module-plus-button">
+        <i onClick={() => createModule(course, {title: "New Module"})}>
+          <FontAwesomeIcon icon={faPlus}/>
+        </i>
+      </h3>
       <ul className="list-group">
         {
           console.log(highlight) ||
           modules.map(module =>
-              <li className="Link list-group-item wbdv-left-content-pane-boxes" key={module._id}>
+              <div className="Link" key={module._id}>
                 <i
                     onClick={() => deleteModule(module)}>
                   <FontAwesomeIcon icon={faTimes}/>
@@ -87,12 +93,9 @@ const ModuleList = (
                     &nbsp; &nbsp; &nbsp;
               </span>
                 }
-              </li>)
+              </div>)
         }
       </ul>
-      <i onClick={() => createModule(course, {title: "New Module"})}>
-        <FontAwesomeIcon icon={faPlus}/>
-      </i>
     </div>
 
 // export default ModuleList
