@@ -47,13 +47,17 @@ const TopicTabs = (
                   !topic.editing && highlightedTopic === topic._id &&
                   <span className="wbdv-highlight-background-dark">
                   <Link onClick={() => highlightTopic(topic._id)}
-                        to={`/edit/${course._id}/lessons/${lessonId}/${topic._id}`} >{topic.title}</Link>
+                        to={`/edit/${course._id}/lessons/${lessonId}/${topic._id}`}>
+                    {topic.title}
+                  </Link>
                       </span>
                 }
                 {
                   !topic.editing && highlightedTopic !== topic._id &&
                   <Link onClick={() => highlightTopic(topic._id)}
-                        to={`/edit/${course._id}/lessons/${lessonId}/${topic._id}`} >{topic.title}</Link>
+                        to={`/edit/${course._id}/lessons/${lessonId}/${topic._id}`}>
+                    {topic.title}
+                  </Link>
                 }
                 {
                   topic.editing &&
@@ -97,12 +101,16 @@ const dispatchToPropertyMapper = (dispatch) => ({
         topicId
       })),
   createTopicForLesson: (lessonId) =>
-      topicService
-      .createTopicForLesson(lessonId, {title: "New Topic"})
-      .then(topic => dispatch({
-        type: "CREATE_TOPIC",
-        topic
-      })),
+  {
+    console.log(lessonId)
+    topicService
+    .createTopicForLesson(lessonId, {title: "New Topic"})
+    .then(topic => dispatch({
+      type: "CREATE_TOPIC",
+      topic
+    }))
+  }
+  ,
   updateTopic: (topic) => dispatch({
     type: "UPDATE_TOPIC",
     topic
