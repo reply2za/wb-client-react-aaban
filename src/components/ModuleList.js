@@ -9,11 +9,10 @@ import {
   updateModule,
   createModule,
   deleteModule,
-  highlightModule
+  highlightModule, unHighlightLesson
 } from "../actions/moduleActions";
 import {Link} from "react-router-dom";
 import {
-  faAlignCenter, faAlignRight,
   faCheck,
   faPen,
   faPlus,
@@ -26,6 +25,7 @@ const ModuleList = (
       modules=[],
       deleteModule,
       highlightModule,
+      highlightedLesson,
       createModule,
       updateModule}) =>
     <div>
@@ -76,7 +76,8 @@ const ModuleList = (
                     &nbsp; &nbsp; &nbsp;
               </span>
                 }
-                {
+
+                { //UNSELECTED MODULE
                   !module.editing && highlight !== module._id &&
                   <span>
                     &nbsp; &nbsp;
@@ -87,12 +88,13 @@ const ModuleList = (
                     &nbsp;&nbsp;
                 <Link to={`/edit/${course._id}/modules/${module._id}`}
                       onClick={
-                        () => highlightModule({module})}>
+                        () => {highlightModule({module})}}>
                 {module.title}
                 </Link>
                     &nbsp; &nbsp; &nbsp;
               </span>
                 }
+
               </div>)
         }
       </ul>
@@ -110,7 +112,7 @@ const propertyToDispatchMapper = (dispatch) => ({
   deleteModule: (module) => deleteModule(dispatch, module),
   createModule: (course, module) => createModule(dispatch, course, module),
   updateModule: (module) => updateModule(dispatch, module),
-  highlightModule: (module) => highlightModule(dispatch, module)
+  highlightModule: (module) => highlightModule(dispatch, module),
 })
 export default connect
 (stateToPropertyMapper,

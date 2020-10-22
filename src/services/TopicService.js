@@ -1,3 +1,4 @@
+const moduleUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban/modules"
 const lessonUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban/lessons"
 const topicUrl = "https://wbdv-generic-server.herokuapp.com/api/aaban/topics"
 

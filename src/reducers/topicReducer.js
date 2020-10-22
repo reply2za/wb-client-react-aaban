@@ -34,10 +34,12 @@ export const topicReducer = (state=initialState, action) => {
         topics: state.topics.filter(topic => topic._id !== action.topicId)
       }
     case "FIND_TOPICS_FOR_LESSON":
+      console.log("hello-topic")
       return {
         ...state,
         topics: action.topics,
-        moduleId: action.moduleId
+        lessonId: action.lessonId,
+        highlightedTopic: 0,
       }
     default:
       return state

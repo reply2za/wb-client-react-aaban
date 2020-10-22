@@ -16,75 +16,118 @@ const TopicTabs = (
       createTopicForLesson,
       lessonId,
       updateTopic,
+      moduleId,
       saveTopic,
       course,
       highlightTopic,
-      highlightedTopic
+      highlightedTopic,
+      generatedLessons
     }) =>
     <div>
-      <h1>Topics ({topics.length})</h1>
+      <h1>Topics
+        { generatedLessons === false &&
+        `(${topics.length})`
+        }
+        </h1>
       <ul className="nav nav-tabs">
         {
           topics.map(topic =>
               <span className="nav-item" key={topic._id}>
                 &nbsp; &nbsp;
-                <i onClick={() => deleteTopic(topic._id)}>
-                  <FontAwesomeIcon icon={faTimes}/>
-                  &nbsp;
-                </i>
-                <i onClick={() => updateTopic({...topic, editing: true})}>
-                  <FontAwesomeIcon icon={faPen}/>
-                  &nbsp;
-                </i>
+
                 {
+                  generatedLessons === false &&
                   topic.editing === true &&
+
+                    <span>
                   <i
                       onClick={() => updateTopic({...topic, editing: false})}>
                     <FontAwesomeIcon icon={faCheck}/>
                   </i>
+                      &nbsp;
+                <i onClick={() => deleteTopic(topic._id)}>
+                  <FontAwesomeIcon icon={faTimes}/>
+                  &nbsp;
+                </i>
+                    </span>
+
                 }
+
                 {
+                  generatedLessons === false &&
                   !topic.editing && highlightedTopic === topic._id &&
                   <span className="wbdv-highlight-background-dark">
+                    <i onClick={() => updateTopic({...topic, editing: true})}>
+                  <FontAwesomeIcon icon={faPen}/>
+                  &nbsp;
+                    </i>
+                    <i onClick={() => saveTopic(topic)}>
+                  &nbsp;
+                      <FontAwesomeIcon icon={faSave}/>
+                    </i>
+                    &nbsp;
                   <Link onClick={() => highlightTopic(topic._id)}
-                        to={`/edit/${course._id}/lessons/${lessonId}/${topic._id}`}>
+                        to={`/edit/${course._id}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}>
                     {topic.title}
                   </Link>
                       </span>
                 }
+
                 {
+                  generatedLessons === false &&
                   !topic.editing && highlightedTopic !== topic._id &&
+                      <span>
+                        <i onClick={() => updateTopic({...topic, editing: true})}>
+                  <FontAwesomeIcon icon={faPen}/>
+                  &nbsp;
+                        </i>
+                         <i onClick={() => saveTopic(topic)}>
+                  &nbsp;
+                           <FontAwesomeIcon icon={faSave}/>
+                    </i>
+                        &nbsp;
                   <Link onClick={() => highlightTopic(topic._id)}
-                        to={`/edit/${course._id}/lessons/${lessonId}/${topic._id}`}>
+                        to={`/edit/${course._id}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}>
                     {topic.title}
+                    &nbsp; &nbsp; &nbsp;
                   </Link>
+                      </span>
                 }
+
                 {
+                  generatedLessons === false &&
                   topic.editing &&
                   <input
                       onChange={(e) => updateTopic({...topic, title: e.target.value})}
                       value={topic.title}/>
                 }
-                <i onClick={() => saveTopic(topic)}>
-                  &nbsp;
-                  <FontAwesomeIcon icon={faSave}/>
-                  &nbsp; &nbsp; &nbsp;
-                </i>
+
               </span>
           )
         }
+        {
+          generatedLessons === false &&
         <i onClick={() =>
             createTopicForLesson(lessonId)}>
           <FontAwesomeIcon color="green" icon={faPlus}/>
         </i>
+        }
+        {
+          generatedLessons === true &&
+          <span>
+        No lesson selected
+      </span>
+        }
       </ul>
     </div>
 
 const stateToPropertyMapper = (state) => ({
   topics: state.topicReducer.topics,
   lessonId: state.topicReducer.lessonId,
+  moduleId: state.lessonReducer.moduleId,
   course: state.courseReducer.course,
-  highlightedTopic: state.topicReducer.highlightedTopic
+  highlightedTopic: state.topicReducer.highlightedTopic,
+  generatedLessons: state.lessonReducer.generatedLessons
 })
 
 const dispatchToPropertyMapper = (dispatch) => ({
@@ -111,11 +154,14 @@ const dispatchToPropertyMapper = (dispatch) => ({
     }))
   }
   ,
-  updateTopic: (topic) => dispatch({
+  updateTopic: (topic) =>
+      dispatch({
     type: "UPDATE_TOPIC",
     topic
   }),
-  highlightTopic: (topicId) => dispatch({
+
+  highlightTopic: (topicId) =>
+      dispatch({
     type: "HIGHLIGHT_TOPIC",
     topicId
   })

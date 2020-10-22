@@ -13,7 +13,10 @@ const moduleReducer = (state=initialState, action) => {
   switch (action.type) {
     case "FIND_MODULES_FOR_COURSE":
       return {
-        modules: action.modules
+        ...state,
+        modules: action.modules,
+        highlight: 0,
+        generatedModules: true
       }
     case CREATE_MODULE:
       return {
@@ -35,7 +38,9 @@ const moduleReducer = (state=initialState, action) => {
         modules: [
           ...state.modules
         ],
-        highlight: action.module.module._id
+        highlight: action.module.module._id,
+        lessonHighlight: 0,
+        generatedModules: false
       }
     default:
       return state

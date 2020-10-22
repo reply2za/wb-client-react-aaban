@@ -162,7 +162,7 @@ const propertyToDispatchMapper = (dispatch) => ({
   findTopicsForLesson: lessonId => {
     topicService.findTopicsForLesson(lessonId)
     .then(topics => dispatch({
-      type: "FIND_TOPIC_FOR_LESSON",
+      type: "FIND_TOPICS_FOR_LESSON",
       topics,
       lessonId
     }))
