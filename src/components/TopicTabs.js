@@ -106,6 +106,7 @@ const TopicTabs = (
               </span>
           )
         }
+
         {
           generatedLessons === false &&
         <i onClick={() =>
@@ -113,6 +114,7 @@ const TopicTabs = (
           <FontAwesomeIcon color="green" icon={faPlus}/>
         </i>
         }
+
         {
           generatedLessons === true &&
           <span>
