@@ -69,6 +69,7 @@ const TopicTabs = (
                   <Link onClick={() => highlightTopic(topic._id)}
                         to={`/edit/${course._id}/modules/${moduleId}/lessons/${lessonId}/topics/${topic._id}`}>
                     {topic.title}
+                    &nbsp; &nbsp; &nbsp;
                   </Link>
                       </span>
                 }
