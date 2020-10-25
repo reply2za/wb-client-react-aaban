@@ -1,24 +1,18 @@
 import React from "react";
 import {findCourseById} from "../services/CourseService";
-import LessonTabsComponent from "./LessonTabsComponent";
 import ReactDOM from 'react-dom';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "./styles.css";
 import "./course-editor.style.client.css";
-import ModuleListComponent from "./ModuleListComponent";
 import ModuleList from "./ModuleList";
 import moduleService from "../services/ModuleService";
 import {connect} from "react-redux";
-//import LessonTabs from "./LessonTabsComponent";
 import LessonTabs from "./LessonTabs";
 import TopicTabs from "./TopicTabs";
 import lessonService from "../services/LessonService";
 import topicService from "../services/TopicService";
 
 import {
-  faFileAlt,
-  fas,
-  faBars,
   faPlus,
   faPlusSquare,
   faTimes, faArrowUp, faArrowDown
