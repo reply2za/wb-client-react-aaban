@@ -1,11 +1,11 @@
-import React from "react";
+import React, {Component} from "react";
 import {updateCourse} from "../services/CourseService";
 import {Link} from "react-router-dom";
 import {faCheck, faFileAlt, faTrash, faPencilAlt} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import "./styles.css";
 
-class CourseRowComponent extends React.Component {
+class CourseRowComponent extends Component {
   state = {
     editing: false,
     courseTitle: "Some Course",

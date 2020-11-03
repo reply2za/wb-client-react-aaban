@@ -11,6 +11,7 @@ import LessonTabs from "./LessonTabs";
 import TopicTabs from "./TopicTabs";
 import lessonService from "../services/LessonService";
 import topicService from "../services/TopicService";
+import widgetService from "../services/WidgetService"
 
 import {
   faPlus,
@@ -18,6 +19,7 @@ import {
   faTimes, faArrowUp, faArrowDown
 } from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
+import WidgetList from "./WidgetList";
 
 class CourseEditor extends React.Component{
 
@@ -34,6 +36,7 @@ class CourseEditor extends React.Component{
     const courseId = this.props.match.params.courseId
     const moduleId = this.props.match.params.moduleId
     const lessonId = this.props.match.params.lessonId
+    const topicId = this.props.match.params.topicId
     this.props.findCourseById(courseId)
     this.props.findModulesForCourse(courseId)
     if(moduleId) {
@@ -42,6 +45,9 @@ class CourseEditor extends React.Component{
     if(lessonId) {
       this.props.findTopicsForLesson(lessonId)
     }
+    if (topicId) {
+      this.props.findWidgetsForTopic(topicId)
+    }
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
@@ -49,11 +55,16 @@ class CourseEditor extends React.Component{
     const previousModuleId = prevProps.match.params.moduleId
     const lessonId = this.props.match.params.lessonId
     const previousLessonId = prevProps.match.params.lessonId
+    const topicId = this.props.match.params.topicId
+    const previousTopicId = prevProps.match.params.topicId
     if(moduleId !== previousModuleId) {
       this.props.findLessonsForModule(moduleId)
     }
     if(lessonId !== previousLessonId) {
       this.props.findTopicsForLesson(lessonId)
+    }
+    if (topicId !== previousTopicId) {
+      this.props.findWidgetsForTopic(topicId)
     }
   }
 
@@ -101,7 +112,8 @@ class CourseEditor extends React.Component{
                   <TopicTabs/>
                 </li>
               </ul>
-
+              <br/>
+              <WidgetList/>
               <br/>
 
               <div>
@@ -152,6 +164,7 @@ class CourseEditor extends React.Component{
 const stateToProperty = (state) => ({
   course: state.courseReducer.course
 })
+
 const propertyToDispatchMapper = (dispatch) => ({
   findTopicsForLesson: lessonId => {
     topicService.findTopicsForLesson(lessonId)
@@ -175,10 +188,18 @@ const propertyToDispatchMapper = (dispatch) => ({
         type: "FIND_MODULES_FOR_COURSE",
         modules: actualModules
       })),
-  findCourseById: (courseId) => findCourseById(courseId)
+  findCourseById: (courseId) =>
+      findCourseById(courseId)
   .then(actualCourse => dispatch({
     type: "FIND_COURSE_BY_ID",
     course: actualCourse
+  })),
+  findWidgetsForTopic: (topicId) =>
+      widgetService.findWidgetsForTopic(topicId)
+  .then(widgets => dispatch({
+    type: "FIND_WIDGETS_FOR_TOPIC",
+    widgets,
+    topicId
   }))
 })
 

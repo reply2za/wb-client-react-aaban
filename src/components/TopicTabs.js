@@ -75,6 +75,7 @@ const TopicTabs = (
                 }
 
                 {
+                  // Not editing & Not highlighted
                   generatedLessons === false &&
                   !topic.editing && highlightedTopic !== topic._id &&
                       <span>
