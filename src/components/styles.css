@@ -83,10 +83,23 @@ input {
   background-color: lightcyan;
 }
 
+.wbdv-highlight-background-dark-selected{
+  background-color: gainsboro;
+}
+
 .wbdv-display-inline {
   display: inline-block;
 }
 
 .wbdv-module-plus-button {
   text-align: center;
+}
+
+.wbdv-no-padding-margin-left {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.wbdv-add-border {
+  border-style: ridge;
 }

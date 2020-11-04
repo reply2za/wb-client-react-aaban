@@ -1,4 +1,4 @@
-const topicsUrl = "http://localhost:8080/api/topics"
+const topicsUrl = "https://cs4550-f20-server-java-aaban.herokuapp.com/api/topics"
 
 export const findWidgetsForTopic = (topicId) =>
   fetch(`${topicsUrl}/${topicId}/widgets`)
@@ -19,7 +19,27 @@ export const createWidgetForTopic = (topicId, widget) =>
         })
 .then(response => response.json())
 
+export const saveWidgetForTopic = (topicId, widget) =>
+    fetch(`${topicsUrl}/${topicId}/widgets/${widget.id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify({
+            ...widget,
+            topicId
+          }),
+          headers: {
+            "content-type" : "application/json"
+          }
+        })
+.then(response => response.json())
+
+export const deleteWidget = (topicId, widget) =>
+    fetch(`${topicsUrl}/${topicId}/widgets/${widget.id}`, {
+      method: "DELETE"
+    })
+    .then(response => response.json())
+
 export default {
-  findWidgetsForTopic, createWidgetForTopic
+  findWidgetsForTopic, createWidgetForTopic, deleteWidget, saveWidgetForTopic
 }
 
