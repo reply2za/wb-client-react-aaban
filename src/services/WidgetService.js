@@ -1,4 +1,5 @@
-const topicsUrl = "https://cs4550-f20-server-java-aaban.herokuapp.com/api/topics"
+//const topicsUrl = "https://cs4550-f20-server-java-aaban.herokuapp.com/api/topics"
+const topicsUrl = "http://localhost:8080/api/topics"
 
 export const findWidgetsForTopic = (topicId) =>
   fetch(`${topicsUrl}/${topicId}/widgets`)

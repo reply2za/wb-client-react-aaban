@@ -3,7 +3,9 @@ import {connect} from "react-redux";
 import widgetService from "../services/WidgetService"
 import HeadingWidget from "./HeadingWidget";
 import ParagraphWidget from "./ParagraphWidget";
+import ImageWidget from "./ImageWidget";
 import {Button} from "react-bootstrap";
+import ListWidget from "./ListWidget";
 const WidgetList = (
     {
       widgets = [],
@@ -50,14 +52,53 @@ const WidgetList = (
               </div>
 
         }
+        {
+          widget.type === "IMAGE" &&
+              <div className="wbdv-add-border wbdv-highlight-background-dark-selected">
+          <ImageWidget updateHeadingPreview= {updateHeadingPreview} updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
+                <div>
+                  <br/>
+                <Button className="btn btn-danger" onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                  Delete
+                </Button>
+                  <Button className="btn btn-success" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
+                  Save
+                </Button>
+                </div>
+              </div>
+
+        }
+        {
+          widget.type === "LIST" &&
+              <div className="wbdv-add-border wbdv-highlight-background-dark-selected">
+          <ListWidget updateHeadingPreview= {updateHeadingPreview} updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
+                <div>
+                  <br/>
+                <Button className="btn btn-danger" onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                  Delete
+                </Button>
+                  <Button className="btn btn-success" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
+                  Save
+                </Button>
+                </div>
+              </div>
+
+        }
       </div>)
     }
   </ul>
+  Add a widget: <br/>
   <Button className="btn btn-primary" onClick={() => createWidgetForTopic(topicId, "PARAGRAPH")}>
-    +P
+    +Paragrah
   </Button>
   <Button className="btn btn-primary" onClick={() => createWidgetForTopic(topicId, "HEADING")}>
-    +H
+    +Heading
+  </Button>
+  <Button className="btn btn-primary" onClick={() => createWidgetForTopic(topicId, "IMAGE")}>
+    +Image
+  </Button>
+  <Button className="btn btn-primary" onClick={() => createWidgetForTopic(topicId, "LIST")}>
+    +List
   </Button>
 </div>
 
