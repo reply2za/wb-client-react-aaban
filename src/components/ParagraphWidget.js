@@ -1,7 +1,4 @@
 import React from "react";
-import {Button} from "react-bootstrap";
-import widgetService from "../services/WidgetService";
-import {connect} from "react-redux";
 
 const ParagraphWidget = ({
       widget,

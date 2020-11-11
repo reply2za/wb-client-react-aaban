@@ -1,8 +1,4 @@
 import React from "react";
-import {Button} from "react-bootstrap";
-import widgetService from "../services/WidgetService";
-import {connect} from "react-redux";
-import {create} from "@material-ui/core/styles/transitions";
 
 
 const handleKeyPress = (event, {
