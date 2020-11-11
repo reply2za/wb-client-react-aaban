@@ -101,7 +101,7 @@ const ListWidget = ({
         widget.headingText === "Unordered list" &&
         createList(widget, "u")
       }
-      <p>Debugging: {widget.text}</p>
+      {/*<p>Debugging: {widget.text}</p>*/}
     </div>
 
   </div>

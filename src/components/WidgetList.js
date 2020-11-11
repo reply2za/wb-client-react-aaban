@@ -20,7 +20,7 @@ const WidgetList = (
   <h3>Widgets</h3>
   <ul>
     {
-      topicId !== null &&
+      topicId !== null && widgets !== null &&
       widgets.map(widget =>
       <div key ={widget.id}>
         {
