@@ -38,10 +38,10 @@ const WidgetList = (
               <div className="wbdv-add-border wbdv-highlight-background-dark-selected">
               <HeadingWidget updateHeadingPreview= {updateHeadingPreview} updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
               <br/>
-              <Button className="btn btn-danger" onClick={() => deleteWidgetForTopic(topicId, widget)}>
+              <Button className="btn btn-danger wbdv-widget-bottom-buttons" onClick={() => deleteWidgetForTopic(topicId, widget)}>
                 Delete
               </Button>
-                <Button className="btn btn-success" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
+                <Button className="btn btn-success wbdv-widget-bottom-buttons" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
                   Save
                 </Button>
               </div>
@@ -52,10 +52,10 @@ const WidgetList = (
           <ParagraphWidget updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
                 <div>
                   <br/>
-                <Button className="btn btn-danger" onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                <Button className="btn btn-danger wbdv-widget-bottom-buttons" onClick={() => deleteWidgetForTopic(topicId, widget)}>
                   Delete
                 </Button>
-                  <Button className="btn btn-success" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
+                  <Button className="btn btn-success wbdv-widget-bottom-buttons" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
                   Save
                 </Button>
                 </div>
@@ -68,10 +68,10 @@ const WidgetList = (
           <ImageWidget updateHeadingPreview= {updateHeadingPreview} updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
                 <div>
                   <br/>
-                <Button className="btn btn-danger" onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                <Button className="btn btn-danger wbdv-widget-bottom-buttons" onClick={() => deleteWidgetForTopic(topicId, widget)}>
                   Delete
                 </Button>
-                  <Button className="btn btn-success" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
+                  <Button className="btn btn-success wbdv-widget-bottom-buttons" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
                   Save
                 </Button>
                 </div>
@@ -84,10 +84,10 @@ const WidgetList = (
           <ListWidget updateHeadingPreview= {updateHeadingPreview} updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
                 <div>
                   <br/>
-                <Button className="btn btn-danger" onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                <Button className="btn btn-danger wbdv-widget-bottom-buttons" onClick={() => deleteWidgetForTopic(topicId, widget)}>
                   Delete
                 </Button>
-                  <Button className="btn btn-success" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
+                  <Button className="btn btn-success wbdv-widget-bottom-buttons" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
                   Save
                 </Button>
                 </div>

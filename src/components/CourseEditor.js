@@ -114,41 +114,6 @@ class CourseEditor extends React.Component{
               </ul>
               <br/>
               <WidgetList/>
-              <br/>
-
-              <div>
-                <h3 className="wbdv-topic-pill">
-                  Heading Widget
-                  <span className="float-right">
-                        <a className="btn btn-warning">
-                            <i className="fas fa-arrow-up wbdv-topic-pill"><FontAwesomeIcon icon={faArrowUp}/></i>
-                        </a>
-                        <a className="btn btn-warning">
-                            <i className="fas fa-arrow-down wbdv-topic-pill"><FontAwesomeIcon icon={faArrowDown}/></i>
-                        </a>
-                        <select>
-                            <option>Heading</option>
-                            <option>MP4</option>
-                            <option>Image</option>
-                            <option>Document</option>
-                            <option>Slides</option>
-                        </select>
-                        <a className="btn btn-danger ">Delete</a>
-                            </span>
-                </h3>
-
-                <input className="form-control wbdv-add-top-spacing"
-                       placeholder="Heading text"/>
-                <select className="form-control wbdv-add-top-spacing">
-                  <option>Heading 1</option>
-                  <option>Heading 2</option>
-                  <option>Heading 3</option>
-                  <option>Heading 4</option>
-                  <option>Heading 5</option>
-                </select>
-                <input className="form-control wbdv-add-top-spacing"
-                       title="Name your widget" placeholder="Widget Name"/>
-              </div>
 
 
             </div>

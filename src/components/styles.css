@@ -84,7 +84,8 @@ input {
 }
 
 .wbdv-highlight-background-dark-selected{
-  background-color: gainsboro;
+  background-color: aliceblue;
+  margin-bottom: 5px;
 }
 
 .wbdv-display-inline {
@@ -102,4 +103,17 @@ input {
 
 .wbdv-add-border {
   border-style: ridge;
+}
+
+.wbdv-widget-bottom-buttons {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.wbdv-left-margin {
+  margin-left: 5px;
+}
+
+.wbdv-bottom-margin {
+  margin-bottom: 20px;
 }

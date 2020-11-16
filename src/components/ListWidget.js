@@ -1,4 +1,6 @@
 import React from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faArrowDown, faArrowUp} from "@fortawesome/free-solid-svg-icons";
 
 
 const handleKeyPress = (event, {
@@ -78,7 +80,16 @@ const ListWidget = ({
   updateHeadingPreview
 }) =>
   <div>
-    <h3>List Widget</h3>
+    <h3>List Widget
+      <div className="float-right">
+        <a className="btn btn-warning">
+          <i className="fas fa-arrow-up wbdv-topic-pill"><FontAwesomeIcon icon={faArrowUp}/></i>
+        </a>
+        <a className="btn btn-warning">
+          <i className="fas fa-arrow-down wbdv-topic-pill"><FontAwesomeIcon icon={faArrowDown}/></i>
+        </a>
+      </div>
+    </h3>
     <div>
       <select value={widget.headingText} onChange={e => updateHeadingPreview(widget, e.target.value)}>
         <option>Ordered list</option>
