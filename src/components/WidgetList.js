@@ -17,7 +17,17 @@ const WidgetList = (
         updateHeadingPreview
     }) =>
 <div>
-  <h3>Widgets</h3>
+  <h3>Widgets
+    <Button className="btn btn-primary float-right" onClick={() => createWidgetForTopic(topicId, document.getElementById("newWidgetSelected").value)}>
+      Add Widget
+    </Button>
+  <select id="newWidgetSelected" className="float-right">
+    <option value="PARAGRAPH">Paragraph</option>
+    <option value="HEADING">Heading</option>
+    <option value="IMAGE">Image</option>
+    <option value="LIST">List</option>
+  </select>
+    </h3>
   <ul>
     {
       topicId !== null && widgets !== null &&
@@ -87,19 +97,8 @@ const WidgetList = (
       </div>)
     }
   </ul>
-  Add a widget: <br/>
-  <Button className="btn btn-primary" onClick={() => createWidgetForTopic(topicId, "PARAGRAPH")}>
-    +Paragrah
-  </Button>
-  <Button className="btn btn-primary" onClick={() => createWidgetForTopic(topicId, "HEADING")}>
-    +Heading
-  </Button>
-  <Button className="btn btn-primary" onClick={() => createWidgetForTopic(topicId, "IMAGE")}>
-    +Image
-  </Button>
-  <Button className="btn btn-primary" onClick={() => createWidgetForTopic(topicId, "LIST")}>
-    +List
-  </Button>
+
+
 </div>
 
 const stateToPropMapper = (state) => ({
