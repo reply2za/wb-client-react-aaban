@@ -18,7 +18,7 @@ const ParagraphWidget = ({
         </div>
       </h3>
       <div>
-      <textarea className="form-control" onChange={e => updateParagraphPreview(widget, e.target.value)}>
+      <textarea className="form-control wbdv-bottom-margin-10" onChange={e => updateParagraphPreview(widget, e.target.value)}>
         {widget.text}
       </textarea>
         <h4>Preview</h4>

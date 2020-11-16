@@ -91,15 +91,16 @@ const ListWidget = ({
       </div>
     </h3>
     <div>
-      <select value={widget.headingText} onChange={e => updateHeadingPreview(widget, e.target.value)}>
-        <option>Ordered list</option>
-        <option>Unordered list</option>
-      </select>
-      <textarea className="form-control" onChange={e => handleKeyPress(e, {widget, updateParagraphPreview})}>
+      <textarea className="form-control wbdv-bottom-margin-10" onChange={e => handleKeyPress(e, {widget, updateParagraphPreview})}>
           {getText(widget)}
       </textarea>
 
-      <h4>Preview</h4>
+      <h4>Preview
+        <select className="wbdv-left-margin" value={widget.headingText} onChange={e => updateHeadingPreview(widget, e.target.value)}>
+          <option>Ordered list</option>
+          <option>Unordered list</option>
+        </select>
+      </h4>
       {
         (widget.headingText === null || widget.headingText === "Ordered list") &&
         createList(widget, "o")

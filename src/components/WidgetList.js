@@ -97,6 +97,7 @@ const WidgetList = (
       </div>)
     }
   </ul>
+  <br/>
 
 
 </div>

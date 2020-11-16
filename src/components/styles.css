@@ -114,6 +114,16 @@ input {
   margin-left: 5px;
 }
 
-.wbdv-bottom-margin {
+.wbdv-bottom-margin-20 {
   margin-bottom: 20px;
+}
+
+.wbdv-bottom-margin-10 {
+  margin-bottom: 10px;
+}
+
+img{
+  margin-left: 41px;
+  max-width:600px;
+  max-height:550px;
 }

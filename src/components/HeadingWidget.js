@@ -22,7 +22,7 @@ const HeadingWidget = ({
 
       <input className="form-control" value={widget.headingText} onChange={e => updateHeadingPreview(widget, e.target.value)}>
       </input>
-      <h4 className="wbdv-bottom-margin">Preview
+      <h4 className="wbdv-bottom-margin-20">Preview
         <span className="wbdv-left-margin">
         {
           widget.text == null &&
