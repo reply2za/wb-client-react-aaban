@@ -14,7 +14,8 @@ const WidgetList = (
         updateParagraphPreview,
         deleteWidgetForTopic,
         saveWidgetForTopicDispatch,
-        updateHeadingPreview
+        updateHeadingPreview,
+        generatedModules
     }) =>
 <div>
   <h3>Widgets
@@ -30,7 +31,7 @@ const WidgetList = (
     </h3>
   <ul>
     {
-      topicId !== null && widgets !== null &&
+      topicId !== null && widgets !== null && generatedModules === false &&
       widgets.map(widget =>
       <div key ={widget.id}>
         {
@@ -104,7 +105,8 @@ const WidgetList = (
 
 const stateToPropMapper = (state) => ({
   widgets: state.widgetReducer.widgets,
-  topicId: state.widgetReducer.topicId
+  topicId: state.widgetReducer.topicId,
+  generatedModules: state.moduleReducer.generatedModules
 })
 
 const dispatchMapper = (dispatch) => ({

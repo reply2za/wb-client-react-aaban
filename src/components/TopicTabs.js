@@ -21,8 +21,12 @@ const TopicTabs = (
       course,
       highlightTopic,
       highlightedTopic,
-      generatedLessons
+      generatedLessons,
+      generatedModules
     }) =>
+
+    <div>
+      {generatedModules === false &&
     <div>
       <h1>Topics
         { generatedLessons === false &&
@@ -124,6 +128,16 @@ const TopicTabs = (
         }
       </ul>
     </div>
+      }
+      {
+        generatedModules === true &&
+            <div>
+              <h1>Topics</h1>
+              <p>No Lesson Selected</p>
+            </div>
+
+      }
+    </div>
 
 const stateToPropertyMapper = (state) => ({
   topics: state.topicReducer.topics,
@@ -131,7 +145,8 @@ const stateToPropertyMapper = (state) => ({
   moduleId: state.lessonReducer.moduleId,
   course: state.courseReducer.course,
   highlightedTopic: state.topicReducer.highlightedTopic,
-  generatedLessons: state.lessonReducer.generatedLessons
+  generatedLessons: state.lessonReducer.generatedLessons,
+  generatedModules: state.moduleReducer.generatedModules
 })
 
 const dispatchToPropertyMapper = (dispatch) => ({
