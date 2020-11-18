@@ -133,7 +133,7 @@ const TopicTabs = (
         generatedModules === true &&
             <div>
               <h1>Topics</h1>
-              <p>No Lesson Selected</p>
+              <p>No lesson Selected</p>
             </div>
 
       }

@@ -15,98 +15,137 @@ const WidgetList = (
         deleteWidgetForTopic,
         saveWidgetForTopicDispatch,
         updateHeadingPreview,
-        generatedModules
+        generatedModules,
+        generatedTopics,
+        generatedLessons
     }) =>
 <div>
-  <h3>Widgets
-    <Button className="btn btn-primary float-right" onClick={() => createWidgetForTopic(topicId, document.getElementById("newWidgetSelected").value)}>
-      Add Widget
-    </Button>
-  <select id="newWidgetSelected" className="float-right">
-    <option value="PARAGRAPH">Paragraph</option>
-    <option value="HEADING">Heading</option>
-    <option value="IMAGE">Image</option>
-    <option value="LIST">List</option>
-  </select>
+{ generatedTopics === false && generatedLessons === false &&
+  <div>
+    <h3>Widgets
+      <Button className="btn btn-primary float-right"
+              onClick={() => createWidgetForTopic(topicId,
+                  document.getElementById("newWidgetSelected").value)}>
+        Add Widget
+      </Button>
+      <select id="newWidgetSelected" className="float-right">
+        <option value="PARAGRAPH">Paragraph</option>
+        <option value="HEADING">Heading</option>
+        <option value="IMAGE">Image</option>
+        <option value="LIST">List</option>
+      </select>
     </h3>
-  <ul>
-    {
-      topicId !== null && widgets !== null && generatedModules === false &&
-      widgets.map(widget =>
-      <div key ={widget.id}>
-        {
-          widget.type === "HEADING" &&
-              <div className="wbdv-add-border wbdv-highlight-background-dark-selected">
-              <HeadingWidget updateHeadingPreview= {updateHeadingPreview} updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
-              <br/>
-              <Button className="btn btn-danger wbdv-widget-bottom-buttons" onClick={() => deleteWidgetForTopic(topicId, widget)}>
-                Delete
-              </Button>
-                <Button className="btn btn-success wbdv-widget-bottom-buttons" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
-                  Save
-                </Button>
-              </div>
-        }
-        {
-          widget.type === "PARAGRAPH" &&
-              <div className="wbdv-add-border wbdv-highlight-background-dark-selected">
-          <ParagraphWidget updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
-                <div>
+    <ul>
+      {
+        topicId !== null && widgets !== null && generatedModules === false &&
+        widgets.map(widget =>
+            <div key={widget.id}>
+              {
+                widget.type === "HEADING" &&
+                <div
+                    className="wbdv-add-border wbdv-highlight-background-dark-selected">
+                  <HeadingWidget updateHeadingPreview={updateHeadingPreview}
+                                 updateParagraphPreview={updateParagraphPreview}
+                                 widget={widget}/>
                   <br/>
-                <Button className="btn btn-danger wbdv-widget-bottom-buttons" onClick={() => deleteWidgetForTopic(topicId, widget)}>
-                  Delete
-                </Button>
-                  <Button className="btn btn-success wbdv-widget-bottom-buttons" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
-                  Save
-                </Button>
+                  <Button className="btn btn-danger wbdv-widget-bottom-buttons"
+                          onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                    Delete
+                  </Button>
+                  <Button className="btn btn-success wbdv-widget-bottom-buttons"
+                          onClick={() => saveWidgetForTopicDispatch(topicId,
+                              widget)}>
+                    Save
+                  </Button>
                 </div>
-              </div>
-
-        }
-        {
-          widget.type === "IMAGE" &&
-              <div className="wbdv-add-border wbdv-highlight-background-dark-selected">
-          <ImageWidget updateHeadingPreview= {updateHeadingPreview} updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
-                <div>
-                  <br/>
-                <Button className="btn btn-danger wbdv-widget-bottom-buttons" onClick={() => deleteWidgetForTopic(topicId, widget)}>
-                  Delete
-                </Button>
-                  <Button className="btn btn-success wbdv-widget-bottom-buttons" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
-                  Save
-                </Button>
+              }
+              {
+                widget.type === "PARAGRAPH" &&
+                <div
+                    className="wbdv-add-border wbdv-highlight-background-dark-selected">
+                  <ParagraphWidget
+                      updateParagraphPreview={updateParagraphPreview}
+                      widget={widget}/>
+                  <div>
+                    <br/>
+                    <Button
+                        className="btn btn-danger wbdv-widget-bottom-buttons"
+                        onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                      Delete
+                    </Button>
+                    <Button
+                        className="btn btn-success wbdv-widget-bottom-buttons"
+                        onClick={() => saveWidgetForTopicDispatch(topicId,
+                            widget)}>
+                      Save
+                    </Button>
+                  </div>
                 </div>
-              </div>
 
-        }
-        {
-          widget.type === "LIST" &&
-              <div className="wbdv-add-border wbdv-highlight-background-dark-selected">
-          <ListWidget updateHeadingPreview= {updateHeadingPreview} updateParagraphPreview= {updateParagraphPreview} widget={widget}/>
-                <div>
-                  <br/>
-                <Button className="btn btn-danger wbdv-widget-bottom-buttons" onClick={() => deleteWidgetForTopic(topicId, widget)}>
-                  Delete
-                </Button>
-                  <Button className="btn btn-success wbdv-widget-bottom-buttons" onClick={() => saveWidgetForTopicDispatch(topicId, widget)}>
-                  Save
-                </Button>
+              }
+              {
+                widget.type === "IMAGE" &&
+                <div
+                    className="wbdv-add-border wbdv-highlight-background-dark-selected">
+                  <ImageWidget updateHeadingPreview={updateHeadingPreview}
+                               updateParagraphPreview={updateParagraphPreview}
+                               widget={widget}/>
+                  <div>
+                    <br/>
+                    <Button
+                        className="btn btn-danger wbdv-widget-bottom-buttons"
+                        onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                      Delete
+                    </Button>
+                    <Button
+                        className="btn btn-success wbdv-widget-bottom-buttons"
+                        onClick={() => saveWidgetForTopicDispatch(topicId,
+                            widget)}>
+                      Save
+                    </Button>
+                  </div>
                 </div>
-              </div>
 
-        }
-      </div>)
-    }
-  </ul>
-  <br/>
+              }
+              {
+                widget.type === "LIST" &&
+                <div
+                    className="wbdv-add-border wbdv-highlight-background-dark-selected">
+                  <ListWidget updateHeadingPreview={updateHeadingPreview}
+                              updateParagraphPreview={updateParagraphPreview}
+                              widget={widget}/>
+                  <div>
+                    <br/>
+                    <Button
+                        className="btn btn-danger wbdv-widget-bottom-buttons"
+                        onClick={() => deleteWidgetForTopic(topicId, widget)}>
+                      Delete
+                    </Button>
+                    <Button
+                        className="btn btn-success wbdv-widget-bottom-buttons"
+                        onClick={() => saveWidgetForTopicDispatch(topicId,
+                            widget)}>
+                      Save
+                    </Button>
+                  </div>
+                </div>
 
-
+              }
+            </div>)
+      }
+    </ul>
+    <br/>
+  </div>
+}
 </div>
 
 const stateToPropMapper = (state) => ({
   widgets: state.widgetReducer.widgets,
   topicId: state.widgetReducer.topicId,
-  generatedModules: state.moduleReducer.generatedModules
+  generatedModules: state.moduleReducer.generatedModules,
+  generatedTopics: state.topicReducer.generatedTopics,
+  generatedLessons: state.lessonReducer.generatedLessons
+
 })
 
 const dispatchMapper = (dispatch) => ({

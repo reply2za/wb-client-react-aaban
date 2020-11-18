@@ -26,7 +26,8 @@ export const topicReducer = (state=initialState, action) => {
     case "HIGHLIGHT_TOPIC":
       return {
         ...state,
-        highlightedTopic: action.topicId
+        highlightedTopic: action.topicId,
+        generatedTopics: false
       }
     case "DELETE_TOPIC":
       return {
@@ -40,6 +41,7 @@ export const topicReducer = (state=initialState, action) => {
         topics: action.topics,
         lessonId: action.lessonId,
         highlightedTopic: 0,
+        generatedTopics: true
       }
     default:
       return state
