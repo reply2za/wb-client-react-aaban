@@ -20,7 +20,7 @@ const WidgetList = (
         generatedLessons
     }) =>
 <div>
-{ generatedTopics === false && generatedLessons === false &&
+{ generatedTopics === false && generatedLessons === false && generatedModules === false &&
   <div>
     <h3>Widgets
       <Button className="btn btn-primary float-right"
