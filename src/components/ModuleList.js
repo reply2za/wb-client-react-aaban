@@ -39,20 +39,21 @@ const ModuleList = (
         {
           console.log(highlight) ||
           modules.map(module =>
-              <div className="Link" key={module._id}>
-                <i
-                    onClick={() => deleteModule(module)}>
-                  <FontAwesomeIcon icon={faTimes}/>
-                </i>
+              <div key={module._id}>
                 {
                   module.editing &&
-                  <div className="wbdv-highlight-background wbdv-display-inline">
-                    &nbsp;
+                  <div className="list-group-item wbdv-module-active">
+                    <i
+                        onClick={() => deleteModule(module)}>
+                      <FontAwesomeIcon icon={faTimes}/>
+                    </i>
+                    &nbsp; &nbsp;
                 <i onClick={() =>
                     updateModule({...module, editing: false})
                 }>
                   <FontAwesomeIcon icon={faCheck}/>
                 </i>
+                    &nbsp; &nbsp;
                 <input
                     onChange={(event) =>
                         updateModule({...module, title: event.target.value})
@@ -63,23 +64,31 @@ const ModuleList = (
                 }
                 {
                   !module.editing && highlight === module._id &&
-                  <span className="wbdv-highlight-background">
+                  <div className="list-group-item wbdv-module-active">
+                    <i
+                        onClick={() => deleteModule(module)}>
+                      <FontAwesomeIcon icon={faTimes}/>
+                    </i>
                     &nbsp; &nbsp;
                     <i onClick={
                       () => updateModule({...module, editing: true})}>
                   <FontAwesomeIcon icon={faPen}/>
                 </i>
-                    &nbsp;&nbsp;
+                    &nbsp; &nbsp;
                     <Link to={`/edit/${course._id}/modules/${module._id}`}>
                 {module.title}
                 </Link>
                     &nbsp; &nbsp; &nbsp;
-              </span>
+              </div>
                 }
 
                 { //UNSELECTED MODULE
                   !module.editing && highlight !== module._id &&
-                  <span>
+                  <div className="list-group-item wbdv-module-unselected">
+                    <i
+                        onClick={() => deleteModule(module)}>
+                      <FontAwesomeIcon icon={faTimes}/>
+                    </i>
                     &nbsp; &nbsp;
                 <i onClick={
                   () => updateModule({...module, editing: true})}>
@@ -92,7 +101,7 @@ const ModuleList = (
                 {module.title}
                 </Link>
                     &nbsp; &nbsp; &nbsp;
-              </span>
+              </div>
                 }
 
               </div>)

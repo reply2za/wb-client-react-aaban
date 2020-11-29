@@ -127,3 +127,11 @@ img{
   max-width:600px;
   max-height:550px;
 }
+
+.wbdv-module-unselected {
+  background-color: #282c34;
+}
+
+.wbdv-module-active{
+  background-color: coral;
+}
