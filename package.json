@@ -2,13 +2,9 @@
   "name": "cs4550-f20-client-react-aaban",
   "version": "0.1.0",
   "private": true,
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
   "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
